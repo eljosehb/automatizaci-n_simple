@@ -4,7 +4,7 @@ from funciones_agente.obtener_clima import obtener_clima
 
 def Chatbot():
     print("*** Chatbot v1.0.0 Iniciando***")
-    print("Hola soy el Chatbot v1.0.0, Puedo ayudarte a obtener informacion sobre Acciones y el clima")
+    print("Hola soy el Chatbot v1.0.0, Puedo ayudarte a obtener informacion sobre acciones de distintas empresas publicas y el clima en cualquier lugar del mundo.")
     print("Que quieres saber hoy?")
 
     # Ciclo infinito para mantener el chatbot corriendo
@@ -25,15 +25,18 @@ def Chatbot():
 
             #Caso 1: El usuario pregunta por acciones
             if stock_match:
-                #Debemos esperar si el usuario indica alguna accion
-                precio = obtener_precio_accion(None, user_input)
+                # Extraemos solo el nombre de la empresa detectado por regex
+                empresa = stock_match.group(1)
+                precio = obtener_precio_accion(None, empresa)
                 if precio:
                     print(f">>> {precio}")
                 else:
                     print("Chatbot: NO pude obtener el precio, Podrias intentar con otra accion? :)")
             #Caso 2: El usuario pregunta por clima
             elif weather_match:     
-                temp = obtener_clima(None, user_input)  
+                # Extraemos solo la ciudad detectada por regex
+                ciudad = weather_match.group(1)
+                temp = obtener_clima(None, ciudad)  
                 if temp:
                     print(f">>> {temp}")
                 else:
