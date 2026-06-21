@@ -29,4 +29,4 @@ def obtener_clima(driver, user_input):
             
     except Exception as e:
         # Manejo de excepciones en caso de fallo en la conexión o timeout
-        return f"Error de red al obtener el clima: {e}"
+        return f"Error de red al obtener el clima: {e}. Por favot revisa tu conexion"

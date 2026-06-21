@@ -73,9 +73,8 @@ while True:
             print(">>> ¡Hasta luego!")
             break
 
-        # 1. Determinar qué quiere hacer el usuario (Intención)
+        # Interpretacion negativa
         funcion_agente = procesar_input(user_input)
-        
         if funcion_agente is None:
             print("No entendí tu solicitud. Prueba preguntando por el clima o el precio de una acción.")
         else:
